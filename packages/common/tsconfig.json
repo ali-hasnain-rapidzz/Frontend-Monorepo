@@ -1,0 +1,22 @@
+
+{
+    "compilerOptions": {
+      "jsx": "react",
+     
+      "outDir": "./dist",
+      "rootDir":"./src",
+      "baseUrl": ".",
+      "paths": {
+        "@monoRepo/packages/common/*": ["src/*"]
+      },
+      "lib": ["esnext"],
+      "module": "commonjs",
+      "target": "es5",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+  }
+  
