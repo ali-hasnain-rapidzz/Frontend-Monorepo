@@ -1,0 +1,43 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+     
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": "./src/app", 
+    "paths": {
+      "@/*": ["./src/app*"],
+      "@Shared/Components/*": ["../../../../packages/common/src/components/*"],
+      "@Components/*": ["components/*"],
+      "@Config/*": ["config/*"],
+      "@Features/*": ["features/*"],
+      "@Hooks/*": ["hooks/*"],
+      "@Pages/*": ["pages/*"],
+      "@Redux/*": ["redux/*"],
+      "@Services/*": ["services/*"],
+      "@Styles/*": ["styles/*"],
+      "@Types/*": ["types/*"],
+      "@Utils/*": ["utils/*"],
+      "@GlobalCSS/*": ["globals.css"],
+      
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
