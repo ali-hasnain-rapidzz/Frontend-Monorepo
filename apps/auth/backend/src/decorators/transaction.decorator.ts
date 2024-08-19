@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 // import { ApiError } from "@Utils/ApiError";
 // import httpStatus from "http-status";
 import { ClientSession, startSession } from "mongoose";
@@ -20,6 +21,7 @@ function Transaction() {
 
     const originalMethod = descriptor.value;
 
+    // eslint-disable-next-line consistent-return
     descriptor.value = async function (...args: any[]) {
       const session: ClientSession = await startSession();
       session.startTransaction();
