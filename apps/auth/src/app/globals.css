@@ -1,0 +1,40 @@
+@import "./styles/form.css";
+@import "./styles/login.css";
+@import "./styles/signup.css";
+@import "./styles/backIcon.css";
+@import "./styles/home.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  
