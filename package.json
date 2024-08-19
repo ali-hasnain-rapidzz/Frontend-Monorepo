@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "name": "monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "lerna run build",
+    "dev": "lerna run dev",
+    "start": "lerna run start",
+    "lint": "lerna run lint"
+  },
+  "devDependencies": {
+    "lerna": "^6.0.0"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.6.11",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
+  }
+}

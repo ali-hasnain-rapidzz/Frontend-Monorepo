@@ -1,0 +1,88 @@
+{
+  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "plugins": ["@typescript-eslint", "import", "jsx-a11y", "react-hooks", "sonarjs"],
+  "rules": {
+    // Possible Errors
+    "no-console": "warn",
+    "no-debugger": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-duplicate-imports": "error",
+    "no-unreachable": "error",
+
+    // Best Practices
+    "curly": ["error", "all"],
+    "eqeqeq": ["error", "always"],
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-multi-spaces": "error",
+    "consistent-return": "error",
+    "no-alert": "warn",
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "guard-for-in": "error",
+    "no-else-return": "error",
+    "no-param-reassign": "error",
+    "prefer-arrow-callback": "error",
+    "prefer-destructuring": ["error", { "array": true, "object": true }],
+
+    // Import Rules
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external", "internal"]],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": false }],
+    "import/no-duplicates": "error",
+    "import/no-unresolved": "error",
+    "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never", "js": "never", "jsx": "never" }],
+    
+    // React and JSX
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "jsx-a11y/anchor-is-valid": "error",
+    "jsx-a11y/alt-text": "error",
+    "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }],
+    "jsx-a11y/no-redundant-roles": "error",
+
+    // TypeScript
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    "@typescript-eslint/no-empty-function": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-inferrable-types": "error",
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "@typescript-eslint/no-var-requires": "error",
+    "@typescript-eslint/no-use-before-define": ["error", { "functions": false, "classes": true, "variables": true }],
+
+    // Code Smell Detection
+    "sonarjs/no-duplicate-string": "error",
+    "sonarjs/no-identical-functions": "error",
+    "sonarjs/no-collapsible-if": "error",
+    "sonarjs/no-nested-template-literals": "error",
+    "sonarjs/prefer-immediate-return": "error",
+    "sonarjs/prefer-single-boolean-return": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
