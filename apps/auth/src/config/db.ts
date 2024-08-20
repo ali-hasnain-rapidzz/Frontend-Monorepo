@@ -1,16 +1,16 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-let isConnected = false; 
+let isConnected = false;
 export async function dbConnect(url: string) {
   if (isConnected) {
-    return; 
+    return;
   }
   try {
-    await mongoose.connect(url); 
+    await mongoose.connect(url);
     isConnected = true;
-    console.log('Database connected successfully');
+    console.log("Database connected successfully");
   } catch (error) {
-    console.error('Database connection error:', error);
-    throw new Error('Failed to connect to the database');
+    console.error("Database connection error:", error);
+    throw new Error("Failed to connect to the database");
   }
 }

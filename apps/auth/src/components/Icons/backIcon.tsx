@@ -1,5 +1,6 @@
-import React from 'react';
-import { FaAngleLeft } from 'react-icons/fa';
+import React from "react";
+
+import { FaAngleLeft } from "react-icons/fa";
 
 const BackIcon: React.FC = () => {
   return (

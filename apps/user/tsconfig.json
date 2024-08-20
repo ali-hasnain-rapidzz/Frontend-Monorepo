@@ -11,7 +11,6 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
@@ -19,21 +18,20 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./src/app",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/app*"],
       "@ParentPackage/*": ["../../../../packages/common/src/*"],
-      "@Components/*": ["components/*"],
-      "@Config/*": ["config/*"],
-      "@Features/*": ["features/*"],
-      "@Hooks/*": ["hooks/*"],
-      "@Pages/*": ["pages/*"],
-      "@Redux/*": ["redux/*"],
-      "@Services/*": ["services/*"],
-      "@Styles/*": ["styles/*"],
-      "@Types/*": ["types/*"],
-      "@Utils/*": ["utils/*"],
-      "@GlobalCSS/*": ["globals.css"]
+      "@Components/*": ["src/app/components/*"],
+      "@Config/*": ["src/app/config/*"],
+      "@Features/*": ["src/app/features/*"],
+      "@Hooks/*": ["src/app/hooks/*"],
+      "@Pages/*": ["src/app/pages/*"],
+      "@Redux/*": ["src/app/redux/*"],
+      "@Services/*": ["src/app/services/*"],
+      "@Styles/*": ["src/app/styles/*"],
+      "@Types/*": ["src/app/types/*"],
+      "@Utils/*": ["src/app/utils/*"],
+      "@GlobalCSS/*": ["src/app/globals.css"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,15 +1,9 @@
-'use client';
+"use client";
 
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
-import { useRegisterMutation } from '@Redux/api/authApiSlice';
+import { useRegisterMutation } from "@Redux/api/authApiSlice";
+import { useNavigate } from "react-router-dom";
 
 interface User {
   name: string;
@@ -27,10 +21,8 @@ interface SignUpContextProps {
 
 const SignUpContext = createContext<SignUpContextProps | undefined>(undefined);
 
-export const SignUpProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [user, setUser] = useState<User>({ name: '', email: '', password: '' });
+export const SignUpProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [user, setUser] = useState<User>({ name: "", email: "", password: "" });
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null); // To handle error messages
@@ -44,17 +36,12 @@ export const SignUpProvider: React.FC<{ children: ReactNode }> = ({
 
       const response = await register(user).unwrap();
 
-      console.log('Signup successful', response);
+      console.log("Signup successful", response);
 
-      navigate('/login');
+      navigate("/login");
     } catch (error: any) {
-      setErrorMessage(
-        error.response?.data?.message || 'Failed to sign up the user',
-      );
-      console.error(
-        'Failed to sign up the user',
-        error.response?.data || error.message,
-      );
+      setErrorMessage(error.response?.data?.message || "Failed to sign up the user");
+      console.error("Failed to sign up the user", error.response?.data || error.message);
     } finally {
       setLoading(false);
     }
@@ -69,9 +56,7 @@ export const SignUpProvider: React.FC<{ children: ReactNode }> = ({
   }, [user]);
 
   return (
-    <SignUpContext.Provider
-      value={{ user, setUser, buttonDisabled, loading, onSignUp }}
-    >
+    <SignUpContext.Provider value={{ user, setUser, buttonDisabled, loading, onSignUp }}>
       {children}
     </SignUpContext.Provider>
   );
@@ -80,7 +65,7 @@ export const SignUpProvider: React.FC<{ children: ReactNode }> = ({
 export const useSignUp = () => {
   const context = useContext(SignUpContext);
   if (context === undefined) {
-    throw new Error('useSignUp must be used within a SignUpProvider');
+    throw new Error("useSignUp must be used within a SignUpProvider");
   }
   return context;
 };

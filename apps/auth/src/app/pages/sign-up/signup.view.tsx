@@ -1,17 +1,16 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useSignUp } from '@App/pages/sign-up/signup.context';
-import InputField from '@Components/inputField';
+import React from "react";
+
+import { useSignUp } from "@App/pages/sign-up/signup.context";
+import InputField from "@Components/inputField";
 
 const SignUpComponent: React.FC = () => {
   const { user, setUser, buttonDisabled, loading, onSignUp } = useSignUp();
 
   return (
     <div className="signup">
-      <h1 className="signup__title">
-        {loading ? 'Processing...' : 'Free Sign Up'}
-      </h1>
+      <h1 className="signup__title">{loading ? "Processing..." : "Free Sign Up"}</h1>
 
       <InputField
         id="name"
@@ -40,12 +39,8 @@ const SignUpComponent: React.FC = () => {
         className="signup__input"
       />
 
-      <button
-        onClick={onSignUp}
-        className="signup__button"
-        disabled={buttonDisabled}
-      >
-        {buttonDisabled ? 'Sign Up' : 'Register My Account Now'}
+      <button onClick={onSignUp} className="signup__button" disabled={buttonDisabled}>
+        {buttonDisabled ? "Sign Up" : "Register My Account Now"}
       </button>
     </div>
   );

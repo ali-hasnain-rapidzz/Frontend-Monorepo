@@ -1,10 +1,17 @@
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier", "import"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
   "rules": {
     "import/named": 0,
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "consistent-return": "off",
     "prettier/prettier": [
       "error",
       {

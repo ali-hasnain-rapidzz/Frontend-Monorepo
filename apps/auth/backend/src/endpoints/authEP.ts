@@ -1,9 +1,9 @@
-import { catchAsync } from '@EPUtils/catchAsync';
-import { loginHandler, signupHandler } from '@Handlers/auth.handler';
-import { authenticatorMiddleware } from '@Middlewares/auth.middleware';
-import { ValidatorMiddleware } from '@Middlewares/validator.middleware';
-import { loginValidator, signUpValidator } from '@Validators/auth.validator';
-import { NextRequest, NextResponse } from 'next/server';
+import { catchAsync } from "@EPUtils/catchAsync";
+import { loginHandler, signupHandler } from "@Handlers/auth.handler";
+import { authenticatorMiddleware } from "@Middlewares/auth.middleware";
+import { ValidatorMiddleware } from "@Middlewares/validator.middleware";
+import { loginValidator, signUpValidator } from "@Validators/auth.validator";
+import { NextRequest, NextResponse } from "next/server";
 
 class AuthEndpoint {
   /**
@@ -11,9 +11,7 @@ class AuthEndpoint {
    */
   private async handleRequest<Type extends object>(
     req: NextRequest,
-    ...middlewares: Array<
-      (dto: Type, req: NextRequest) => Promise<void | NextResponse>
-    >
+    ...middlewares: Array<(dto: Type, req: NextRequest) => Promise<void | NextResponse>>
   ): Promise<NextResponse> {
     return catchAsync(async (req: NextRequest): Promise<NextResponse> => {
       const body = await req.json();
@@ -26,10 +24,7 @@ class AuthEndpoint {
         }
       }
 
-      const handler = middlewares.pop() as (
-        dto: Type,
-        req: NextRequest,
-      ) => Promise<NextResponse>;
+      const handler = middlewares.pop() as (dto: Type, req: NextRequest) => Promise<NextResponse>;
       return await handler(dto, req);
     })(req);
   }
@@ -51,11 +46,7 @@ class AuthEndpoint {
    * Sign Up
    */
   async register(req: NextRequest): Promise<NextResponse> {
-    return this.handleRequest(
-      req,
-      ValidatorMiddleware(signUpValidator),
-      signupHandler,
-    );
+    return this.handleRequest(req, ValidatorMiddleware(signUpValidator), signupHandler);
   }
 }
 

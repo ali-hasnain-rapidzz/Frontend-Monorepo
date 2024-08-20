@@ -1,7 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-// backend/decorators/requestMethod.ts
-
 import { NextApiRequest, NextApiResponse } from "next";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";

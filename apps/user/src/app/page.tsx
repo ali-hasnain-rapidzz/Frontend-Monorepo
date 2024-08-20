@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
 import WelcomeMessage from "@Components/home";

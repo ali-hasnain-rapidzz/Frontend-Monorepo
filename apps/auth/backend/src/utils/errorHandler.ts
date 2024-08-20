@@ -1,12 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server';
-import httpStatus from 'http-status';
+import httpStatus from "http-status";
+import { NextRequest, NextResponse } from "next/server";
 
-type APIError = {
+interface APIError {
   statusCode?: number;
   message: string;
   stack?: string;
   name?: string;
-};
+}
 
 const mongoValidationError = (err: APIError): NextResponse => {
   return NextResponse.json(
@@ -14,18 +14,18 @@ const mongoValidationError = (err: APIError): NextResponse => {
       statusCode: httpStatus.FORBIDDEN,
       message: err.message,
     },
-    { status: httpStatus.FORBIDDEN }
+    { status: httpStatus.FORBIDDEN },
   );
 };
 
 const sendErrorDev = (err: APIError): NextResponse => {
   const { statusCode = 500, message, stack, name } = err;
 
-  if (name === 'ValidationError') {
+  if (name === "ValidationError") {
     return mongoValidationError(err);
   }
 
-  console.error('ERROR! 💥', err);
+  console.error("ERROR! 💥", err);
 
   return NextResponse.json(
     {
@@ -34,18 +34,18 @@ const sendErrorDev = (err: APIError): NextResponse => {
       message,
       stack,
     },
-    { status: statusCode }
+    { status: statusCode },
   );
 };
 
 const sendErrorProd = (err: APIError): NextResponse => {
   let { statusCode = httpStatus.INTERNAL_SERVER_ERROR, message, name } = err;
 
-  if (name === 'ValidationError') {
+  if (name === "ValidationError") {
     return mongoValidationError(err);
   }
 
-  message = message || httpStatus['500_MESSAGE'] as string;
+  message = message || (httpStatus["500_MESSAGE"] as string);
 
   const response = {
     statusCode,
@@ -56,9 +56,8 @@ const sendErrorProd = (err: APIError): NextResponse => {
 };
 
 export const globalErrorHandler = (err: any, req: NextRequest): NextResponse => {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     return sendErrorProd(err);
-  } else {
-    return sendErrorDev(err);
   }
+  return sendErrorDev(err);
 };
