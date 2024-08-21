@@ -14,7 +14,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@ParentPackage/*": ["packages/common/src/*"]
+      "@ParentPackage/*": ["./packages/common/src/*"]
     }
   },
   "exclude": ["node_modules"],

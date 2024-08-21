@@ -12,5 +12,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.run": "onType"
+  "eslint.run": "onType",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true
 }

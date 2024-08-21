@@ -20,7 +20,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@ParentPackage/*": ["../../../../packages/common/src/*"],
+      "@ParentPackage/*": ["../../packages/common/src/*"],
       "@Components/*": ["src/app/components/*"],
       "@Config/*": ["src/app/config/*"],
       "@Features/*": ["src/app/features/*"],
