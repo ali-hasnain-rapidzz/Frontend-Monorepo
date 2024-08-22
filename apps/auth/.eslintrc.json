@@ -1,7 +1,11 @@
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier", "import"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
   "rules": {
     "import/named": 0,
     "@typescript-eslint/no-explicit-any": "off",
@@ -20,7 +24,10 @@
     "no-restricted-imports": [
       "error",
       {
-        "patterns": ["./*", "../*", "../../*", "../../../*", ".*"]
+        "patterns": [
+          "**/.*", // Restrict all relative paths, including hidden files like .env
+          "^[^.].*/.*" // Restrict imports that don't start with `@`
+        ]
       }
     ]
   },

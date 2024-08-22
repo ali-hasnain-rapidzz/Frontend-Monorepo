@@ -22,7 +22,10 @@
     "no-restricted-imports": [
       "error",
       {
-        "patterns": ["./*", "../*", "../../*", "../../../*", ".*"]
+        "patterns": [
+          "**/.*", // Restrict all relative paths, including hidden files like .env
+          "^[^.].*/.*" // Restrict imports that don't start with `@`
+        ]
       }
     ]
   },
