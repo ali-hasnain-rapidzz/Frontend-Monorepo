@@ -1,6 +1,5 @@
 **/node_modules
 
-*.lock
-*/*.lock
+**/*.lock
 
-package-lock.json
+**/package-lock.json
