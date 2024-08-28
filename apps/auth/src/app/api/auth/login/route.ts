@@ -1,5 +1,5 @@
 import { dbConnect } from "@Config/db";
-import { authEndpoint } from "@Endpoints/authEP";
+import { authEndpoint } from "@Endpoints/auth.endpoint";
 import { catchAsync } from "@EPUtils/catchAsync";
 import { NextRequest } from "next/server";
 

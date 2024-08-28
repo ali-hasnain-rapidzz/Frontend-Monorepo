@@ -11,7 +11,9 @@ class AuthEndpoint {
    */
   private async handleRequest<Type extends object>(
     req: NextRequest,
-    ...middlewares: Array<(dto: Type, req: NextRequest) => Promise<void | NextResponse>>
+    ...middlewares: Array<
+      (dto: Type, req: NextRequest) => Promise<void | NextResponse>
+    >
   ): Promise<NextResponse> {
     return catchAsync(async (req: NextRequest): Promise<NextResponse> => {
       const body = await req.json();
@@ -24,7 +26,10 @@ class AuthEndpoint {
         }
       }
 
-      const handler = middlewares.pop() as (dto: Type, req: NextRequest) => Promise<NextResponse>;
+      const handler = middlewares.pop() as (
+        dto: Type,
+        req: NextRequest,
+      ) => Promise<NextResponse>;
       return await handler(dto, req);
     })(req);
   }
@@ -46,7 +51,11 @@ class AuthEndpoint {
    * Sign Up
    */
   async register(req: NextRequest): Promise<NextResponse> {
-    return this.handleRequest(req, ValidatorMiddleware(signUpValidator), signupHandler);
+    return this.handleRequest(
+      req,
+      ValidatorMiddleware(signUpValidator),
+      signupHandler,
+    );
   }
 }
 

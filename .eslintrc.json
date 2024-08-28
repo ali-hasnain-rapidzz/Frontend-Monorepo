@@ -3,9 +3,13 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "prettier",
+    "plugin:prettier/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "plugins": [
+    "prettier",
+    "import",
     "@typescript-eslint",
     "import",
     "jsx-a11y",
@@ -23,6 +27,15 @@
     ],
     "no-duplicate-imports": "error",
     "no-unreachable": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "**/.*", // Restrict all relative paths, including hidden files like .env
+          "^[^.].*/.*" // Restrict imports that don't start with `@`
+        ]
+      }
+    ],
 
     // Best Practices
     "curly": ["error", "all"],

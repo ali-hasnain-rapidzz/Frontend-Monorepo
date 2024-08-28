@@ -1,5 +1,5 @@
 {
-  "extends": ["../../.eslintrc.json", "plugin:prettier/recommended"],
+  "extends": ["../../.eslintrc.json"],
   "plugins": ["validate-filename"],
 
   "rules": {
@@ -105,7 +105,8 @@
         "**/models/**/*.ts",
         "**/plugins/**/*.ts",
         "**/services/**/*.ts",
-        "**/validators/**/*.ts"
+        "**/validators/**/*.ts",
+        "**/types/**/*.ts"
       ],
       "rules": {
         "@typescript-eslint/naming-convention": [
@@ -134,10 +135,7 @@
             "selector": "parameter",
             "format": ["camelCase"]
           },
-          {
-            "selector": "property",
-            "format": ["camelCase"]
-          },
+
           {
             "selector": "method",
             "format": ["camelCase"]
