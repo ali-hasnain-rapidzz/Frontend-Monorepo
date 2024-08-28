@@ -1,4 +1,5 @@
 import { ERROR_MESSAGES } from "@Constants/constants";
+import TryCatch from "@Decorators/tryCatch.decorator";
 import { IUser, UserType } from "@EPTypes/user.types";
 import { ApiError } from "@EPUtils/ApiError";
 import { EncryptLibrary } from "@Libraries/encrypt.lib";
@@ -7,8 +8,14 @@ import { User } from "@Models/user.model";
 import httpStatus from "http-status";
 
 class UserServiceClass {
-  findUserByEmail = async (email: string, allowPassword?: boolean): Promise<UserType | null> => {
-    const userDoc = await User.findOne({ email }).select(allowPassword ? "+password" : "");
+  @TryCatch()
+  findUserByEmail = async (
+    email: string,
+    allowPassword?: boolean,
+  ): Promise<UserType | null> => {
+    const userDoc = await User.findOne({ email }).select(
+      allowPassword ? "+password" : "",
+    );
 
     if (!userDoc) {
       return null;
@@ -16,7 +23,7 @@ class UserServiceClass {
 
     return userDoc.toObject() as UserType;
   };
-
+  @TryCatch()
   async loginUser({
     email,
     password,
@@ -25,7 +32,10 @@ class UserServiceClass {
     password: string;
   }): Promise<{ token: string; user: Omit<UserType, "password"> }> {
     const user = await this.findUserByEmail(email, true);
-    if (!user || !(await EncryptLibrary.comparePasswords(password, user.password))) {
+    if (
+      !user ||
+      !(await EncryptLibrary.comparePasswords(password, user.password))
+    ) {
       throw new ApiError(httpStatus.BAD_REQUEST, ERROR_MESSAGES.INVALID_USER);
     }
 
@@ -33,7 +43,7 @@ class UserServiceClass {
     const { password: usrPass, ...usertoSend } = user;
     return { token, user };
   }
-
+  @TryCatch()
   createUser = async ({
     name,
     email,
