@@ -6,8 +6,10 @@
     "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
-      "@monoRepo/packages/common/*": ["src/*"]
+      "@monoRepo/packages/common/*": ["src/*"],
+      "@Styles/*": ["src/components/Styling/*"]
     },
+
     "lib": ["esnext"],
     "module": "commonjs",
     "target": "es5",

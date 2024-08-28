@@ -1,16 +1,18 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import InputField from "@Components/inputField";
-import { useLogin } from "@Pages/login/login.context";
+import InputField from '@Components/input_field.component';
+import { useLogin } from '@Pages/login/login.context';
 
 const LoginComponent: React.FC = () => {
   const { user, setUser, buttonDisabled, loading, onLogin } = useLogin();
 
   return (
     <div className="login">
-      <h1 className="login__title">{loading ? "We're logging you in..." : "Account Login"}</h1>
+      <h1 className="login__title">
+        {loading ? "We're logging you in..." : 'Account Login'}
+      </h1>
 
       <InputField
         id="email"
@@ -30,7 +32,11 @@ const LoginComponent: React.FC = () => {
         className="login__input"
       />
 
-      <button onClick={onLogin} className="login__button" disabled={buttonDisabled}>
+      <button
+        onClick={onLogin}
+        className="login__button"
+        disabled={buttonDisabled}
+      >
         Login
       </button>
     </div>
