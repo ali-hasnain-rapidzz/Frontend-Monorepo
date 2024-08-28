@@ -1,14 +1,14 @@
-'use client';
-import WelcomeMessage from '@Components/home';
-import Navbar from '@ParentPackage/components/Navbar';
+"use client";
+import WelcomeMessage from "@Components/home";
+import Navbar from "@ParentPackage/Components/Navbar";
 
-function MyApp() {
+const MyApp = () => {
   return (
     <>
       <Navbar />
       <WelcomeMessage />
     </>
   );
-}
+};
 
 export default MyApp;

@@ -1,19 +1,14 @@
-import { ERROR_MESSAGES } from '@Constants/constants';
-import { IUser, UserType } from '@EPTypes/user.types';
-import { ApiError } from '@EPUtils/ApiError';
-import { EncryptLibrary } from '@Libraries/encrypt.lib';
-import { TokenService } from '@Libraries/token.lib';
-import { User } from '@Models/user.model';
-import httpStatus from 'http-status';
+import { ERROR_MESSAGES } from "@Constants/constants";
+import { IUser, UserType } from "@EPTypes/user.types";
+import { ApiError } from "@EPUtils/ApiError";
+import { EncryptLibrary } from "@Libraries/encrypt.lib";
+import { TokenService } from "@Libraries/token.lib";
+import { User } from "@Models/user.model";
+import httpStatus from "http-status";
 
 class UserServiceClass {
-  findUserByEmail = async (
-    email: string,
-    allowPassword?: boolean,
-  ): Promise<UserType | null> => {
-    const userDoc = await User.findOne({ email }).select(
-      allowPassword ? '+password' : '',
-    );
+  findUserByEmail = async (email: string, allowPassword?: boolean): Promise<UserType | null> => {
+    const userDoc = await User.findOne({ email }).select(allowPassword ? "+password" : "");
 
     if (!userDoc) {
       return null;
@@ -28,17 +23,13 @@ class UserServiceClass {
   }: {
     email: string;
     password: string;
-  }): Promise<{ token: string; user: Omit<UserType, 'password'> }> {
+  }): Promise<{ token: string; user: Omit<UserType, "password"> }> {
     const user = await this.findUserByEmail(email, true);
-    if (
-      !user ||
-      !(await EncryptLibrary.comparePasswords(password, user.password))
-    ) {
+    if (!user || !(await EncryptLibrary.comparePasswords(password, user.password))) {
       throw new ApiError(httpStatus.BAD_REQUEST, ERROR_MESSAGES.INVALID_USER);
     }
 
     const token = TokenService.generateToken(user.email, user.name);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: usrPass, ...usertoSend } = user;
     return { token, user };
   }
@@ -56,7 +47,6 @@ class UserServiceClass {
     const newUser = new User({ name, email, password: hashedPassword });
     return await newUser.save();
   };
-
 }
 
 export const UserService = new UserServiceClass();

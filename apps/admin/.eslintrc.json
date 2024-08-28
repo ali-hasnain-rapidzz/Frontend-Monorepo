@@ -1,34 +1,26 @@
 {
-  "extends": [
-    
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript"
-  ],
+  "extends": ["../../.eslintrc.json"],
   "rules": {
-    "import/no-extraneous-dependencies": [
+    "import/named": 0,
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "consistent-return": "off",
+    "prettier/prettier": [
       "error",
       {
-        "devDependencies": false,
-        "optionalDependencies": false,
-        "peerDependencies": false,
-        "packageDir": ["./", "../../"] 
+        "endOfLine": "auto"
       }
     ],
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": ["@ParentPackage/*"] 
-      }
-    ]
+    "import/no-unresolved": [2, { "ignore": ["^@"] }]
   },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["src"],
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      },
-      "typescript": {} 
+  "overrides": [
+    {
+      "files": ["tests/**/*"],
+      "rules": {
+        "import/no-unresolved": "off",
+        "import/no-extraneous-dependencies": "off"
+      }
     }
-  }
+  ]
 }

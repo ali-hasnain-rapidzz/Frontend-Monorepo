@@ -1,14 +1,41 @@
 {
-  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
-  "plugins": ["@typescript-eslint", "import", "jsx-a11y", "react-hooks", "sonarjs"],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "prettier",
+    "import",
+    "@typescript-eslint",
+    "import",
+    "jsx-a11y",
+    "react-hooks",
+    "sonarjs"
+  ],
   "rules": {
     // Possible Errors
     "no-console": "warn",
     "no-debugger": "error",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
     "no-duplicate-imports": "error",
     "no-unreachable": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "**/.*", // Restrict all relative paths, including hidden files like .env
+          "^[^.].*/.*" // Restrict imports that don't start with `@`
+        ]
+      }
+    ],
 
     // Best Practices
     "curly": ["error", "all"],
@@ -43,11 +70,18 @@
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
     ],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": false }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": false }
+    ],
     "import/no-duplicates": "error",
     "import/no-unresolved": "error",
-    "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never", "js": "never", "jsx": "never" }],
-    
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      { "ts": "never", "tsx": "never", "js": "never", "jsx": "never" }
+    ],
+
     // React and JSX
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
@@ -62,10 +96,16 @@
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-inferrable-types": "error",
     "@typescript-eslint/no-non-null-assertion": "error",
-    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { "allowExpressions": true }
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "error",
     "@typescript-eslint/no-var-requires": "error",
-    "@typescript-eslint/no-use-before-define": ["error", { "functions": false, "classes": true, "variables": true }],
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      { "functions": false, "classes": true, "variables": true }
+    ],
 
     // Code Smell Detection
     "sonarjs/no-duplicate-string": "error",
@@ -76,6 +116,9 @@
     "sonarjs/prefer-single-boolean-return": "error"
   },
   "settings": {
+    "next": {
+      "rootDir": "apps/auth"
+    },
     "react": {
       "version": "detect"
     },

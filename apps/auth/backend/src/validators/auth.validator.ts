@@ -1,4 +1,4 @@
-import { InferDtoType } from "@EPTypes/generic.type";
+import { InferDtoType } from "@EPUtils/Infer.type";
 import { IsEmail, IsNotEmpty, MinLength } from "class-validator";
 
 export class signUpValidator {

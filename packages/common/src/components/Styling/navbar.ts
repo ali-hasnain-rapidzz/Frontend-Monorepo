@@ -4,7 +4,7 @@ export const Nav = styled.nav`
   margin-top: 8px;
   margin-left: 5px;
   margin-right: 20px;
-  background: #fff;
+  background: #f0f0f0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #eaeaea;
   border-radius: 15px;
@@ -44,6 +44,6 @@ export const NavLink = styled.a`
   color: #000;
   font-weight: 500;
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 `;

@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+
+import InputField from '@Components/input_field.component';
 import { useLogin } from '@Pages/login/login.context';
-import InputField from '@Components/inputField';
 
 const LoginComponent: React.FC = () => {
   const { user, setUser, buttonDisabled, loading, onLogin } = useLogin();
