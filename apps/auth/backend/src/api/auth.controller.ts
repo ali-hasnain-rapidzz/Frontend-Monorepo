@@ -1,9 +1,9 @@
-import { ERROR_MESSAGES } from '@Constants/constants';
-import { UserService } from '@EPServices/user.service';
-import { ApiError } from '@EPUtils/ApiError';
-import { loginValidator, signUpValidator } from '@Validators/auth.validator';
-import httpStatus from 'http-status';
-import { NextResponse } from 'next/server';
+import { ERROR_MESSAGES } from "@Constants/constants";
+import { UserService } from "@EPServices/user.service";
+import { ApiError } from "@EPUtils/ApiError";
+import { loginValidator, signUpValidator } from "@Validators/auth.validator";
+import httpStatus from "http-status";
+import { NextResponse } from "next/server";
 
 export const signup = async (
   parsedBody: signUpValidator,

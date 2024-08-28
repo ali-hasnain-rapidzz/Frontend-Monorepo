@@ -1,33 +1,32 @@
 /* Block: BackIcon */
 .back-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f3f4f6;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  .back-icon__icon {
-    font-size: 20px; 
-    color: #333; 
-    transition: color 0.3s;
-  }
-  
-  .back-icon--hover:hover {
-    background-color: #e2e8f0;
-    border-color: #ccc;
-  }
-  
-  .back-icon--active:active {
-    background-color: #cbd5e1;
-  }
-  
-  .back-icon--hover:hover .back-icon__icon {
-    color: #0070f3; 
-  }
-  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.back-icon__icon {
+  font-size: 20px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.back-icon--hover:hover {
+  background-color: #e2e8f0;
+  border-color: #ccc;
+}
+
+.back-icon--active:active {
+  background-color: #cbd5e1;
+}
+
+.back-icon--hover:hover .back-icon__icon {
+  color: #0070f3;
+}

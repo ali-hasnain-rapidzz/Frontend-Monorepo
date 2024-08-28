@@ -16,7 +16,11 @@ export function RequestMethod(method: HttpMethod) {
       ...args: any[]
     ): Promise<void> {
       if (req.method !== method) {
-        res.status(405).json({ message: `Method ${req.method} not allowed. Use ${method}.` });
+        res
+          .status(405)
+          .json({
+            message: `Method ${req.method} not allowed. Use ${method}.`,
+          });
         return;
       }
       return originalMethod.apply(this, [req, res, ...args]);

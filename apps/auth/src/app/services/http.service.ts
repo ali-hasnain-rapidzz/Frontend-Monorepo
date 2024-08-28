@@ -6,7 +6,11 @@ interface HttpRequestOptions {
 }
 
 class HttpServiceClass {
-  private async request(endpoint: string, method: HttpMethod, options?: HttpRequestOptions) {
+  private async request(
+    endpoint: string,
+    method: HttpMethod,
+    options?: HttpRequestOptions,
+  ) {
     const url = endpoint;
     const headers = {
       "Content-Type": "application/json",
