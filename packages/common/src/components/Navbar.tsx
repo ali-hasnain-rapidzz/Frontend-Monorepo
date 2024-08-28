@@ -1,9 +1,9 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
-import Link from 'next/link';
+import { Logo, Nav, NavItem, NavLink, NavList } from "@Styles/navbar";
+import Link from "next/link";
 
-import { Logo, Nav, NavItem, NavLink, NavList } from './Styling/navbar';
 const Navbar: React.FC = () => (
   <Nav>
     <Logo>Logo</Logo>

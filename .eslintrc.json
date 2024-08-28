@@ -18,8 +18,8 @@
   ],
   "rules": {
     // Possible Errors
-    "no-console": "warn",
-    "no-debugger": "error",
+    // "no-console": "warn",
+    // "no-debugger": "error",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",

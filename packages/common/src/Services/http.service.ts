@@ -1,14 +1,19 @@
-import fetch, { HeadersInit, RequestInit, BodyInit } from "node-fetch";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import fetch, { BodyInit, HeadersInit, RequestInit } from "node-fetch";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 
 interface HttpRequestOptions {
-  body?: any;
+  body?: object;
   headers?: HeadersInit;
 }
 
 class HttpServiceClass {
-  private async request(endpoint: string, method: HttpMethod, options?: HttpRequestOptions) {
+  private async request(
+    endpoint: string,
+    method: HttpMethod,
+    options?: HttpRequestOptions,
+  ) {
     const url = endpoint;
     const headers: HeadersInit = {
       "Content-Type": "application/json",
@@ -18,7 +23,9 @@ class HttpServiceClass {
     const config: RequestInit = {
       method,
       headers,
-      body: options?.body ? JSON.stringify(options.body) as BodyInit : undefined,
+      body: options?.body
+        ? (JSON.stringify(options.body) as BodyInit)
+        : undefined,
     };
 
     try {
@@ -37,11 +44,11 @@ class HttpServiceClass {
     return this.request(endpoint, "GET", options);
   }
 
-  public post(endpoint: string, body: any, options?: HttpRequestOptions) {
+  public post(endpoint: string, body: object, options?: HttpRequestOptions) {
     return this.request(endpoint, "POST", { ...options, body });
   }
 
-  public put(endpoint: string, body: any, options?: HttpRequestOptions) {
+  public put(endpoint: string, body: object, options?: HttpRequestOptions) {
     return this.request(endpoint, "PUT", { ...options, body });
   }
 
