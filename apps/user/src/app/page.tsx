@@ -1,16 +1,12 @@
-
 "use client";
-import Navbar from '@Shared/Components/Navbar';
-import WelcomeMessage from '@Components/home';
-import "./globals.css";
-function MyApp() {
+import Navbar from "@ParentPackage/Components/Navbar";
+
+const MyApp = () => {
   return (
     <>
       <Navbar />
-      <WelcomeMessage/>
-      
     </>
   );
-}
+};
 
 export default MyApp;

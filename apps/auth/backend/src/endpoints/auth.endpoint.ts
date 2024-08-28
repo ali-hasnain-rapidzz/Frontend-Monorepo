@@ -1,9 +1,9 @@
-import { catchAsync } from '@EPUtils/catchAsync';
-import { loginHandler, signupHandler } from '@Handlers/auth.handler';
-import { authenticatorMiddleware } from '@Middlewares/auth.middleware';
-import { ValidatorMiddleware } from '@Middlewares/validator.middleware';
-import { loginValidator, signUpValidator } from '@Validators/auth.validator';
-import { NextRequest, NextResponse } from 'next/server';
+import { catchAsync } from "@EPUtils/catchAsync";
+import { loginHandler, signupHandler } from "@Handlers/auth.handler";
+import { authenticatorMiddleware } from "@Middlewares/auth.middleware";
+import { ValidatorMiddleware } from "@Middlewares/validator.middleware";
+import { loginValidator, signUpValidator } from "@Validators/auth.validator";
+import { NextRequest, NextResponse } from "next/server";
 
 class AuthEndpoint {
   /**

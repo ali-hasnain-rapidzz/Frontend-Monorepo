@@ -1,5 +1,4 @@
 import { UserType } from "@EPTypes/user.types";
-import { softDeletePlugin } from "@Plugins/softDelete.plugin";
 import { Model, Schema, model, models } from "mongoose";
 
 const userSchema = new Schema<UserType>(
@@ -25,11 +24,8 @@ const userSchema = new Schema<UserType>(
   {
     versionKey: false,
     timestamps: true,
-  }
+  },
 );
-
-// Apply plugins
-userSchema.plugin(softDeletePlugin);
 
 export const User: Model<UserType> = models.User || model<UserType>("User", userSchema);
 

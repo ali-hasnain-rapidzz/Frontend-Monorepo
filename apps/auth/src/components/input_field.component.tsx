@@ -6,7 +6,7 @@ interface InputFieldProps {
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
-  className?: string; 
+  className?: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -24,7 +24,7 @@ const InputField: React.FC<InputFieldProps> = ({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className={className} 
+      className={className}
     />
   );
 };

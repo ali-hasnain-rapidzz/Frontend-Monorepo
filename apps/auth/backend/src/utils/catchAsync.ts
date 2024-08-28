@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { ValidationError } from 'class-validator';
+import { ValidationError } from "class-validator";
+import { NextRequest, NextResponse } from "next/server";
 
 export const catchAsync = (fn: (req: NextRequest) => Promise<NextResponse>) => {
   return async (req: NextRequest): Promise<NextResponse> => {
@@ -18,10 +18,7 @@ export const catchAsync = (fn: (req: NextRequest) => Promise<NextResponse>) => {
 
       console.error("Unhandled Error:", err);
 
-      return NextResponse.json(
-        { message: 'Internal Server Error' },
-        { status: 500 }
-      );
+      return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
     }
   };
 };

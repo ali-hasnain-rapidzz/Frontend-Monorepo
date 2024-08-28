@@ -1,15 +1,16 @@
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .nav {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   padding: 1rem 2rem;
-  border-bottom: 1px solid #e0e0e0; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .nav__list {
@@ -25,9 +26,9 @@ body, html {
 }
 
 .nav__link {
-  text-decoration: none; 
+  text-decoration: none;
   color: #1a202c;
-  font-weight: 600; 
+  font-weight: 600;
   font-size: 1rem;
   position: relative;
   transition: color 0.3s ease;
@@ -38,7 +39,7 @@ body, html {
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: #2b6cb0; 
+  background-color: #2b6cb0;
   bottom: -2px;
   left: 0;
   transform: scaleX(0);
@@ -49,7 +50,7 @@ body, html {
 .nav__link:hover,
 .nav__link:focus {
   color: #2b6cb0;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .nav__link:hover::after,
@@ -61,12 +62,12 @@ body, html {
 .routes {
   padding: 2rem;
   background-color: #ffffff;
-  border-radius: 12px; 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 2rem auto;
-  max-width: 800px; 
-  height: calc(100vh - 120px); 
-  overflow: hidden; 
+  max-width: 800px;
+  height: calc(100vh - 120px);
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -86,10 +87,10 @@ body, html {
   }
 
   .nav__link {
-    font-size: 1.125rem; 
+    font-size: 1.125rem;
   }
 
   .routes {
-    height: calc(100vh - 140px); 
+    height: calc(100vh - 140px);
   }
 }

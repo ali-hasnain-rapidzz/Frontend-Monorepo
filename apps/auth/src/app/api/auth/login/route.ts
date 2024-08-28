@@ -1,12 +1,10 @@
-import { NextRequest } from 'next/server';
-import { catchAsync } from '@EPUtils/catchAsync';
-import { dbConnect } from '@Config/db';
-import { authEndpoint } from '@Endpoints/authEP';
+import { dbConnect } from "@Config/db";
+import { authEndpoint } from "@Endpoints/auth.endpoint";
+import { catchAsync } from "@EPUtils/catchAsync";
+import { NextRequest } from "next/server";
 
 export const POST = catchAsync(async (req: NextRequest) => {
-  await dbConnect(process.env.MONGODB_URI || '');
+  await dbConnect(process.env.MONGODB_URI || "");
 
-  const response = await authEndpoint.login(req);
-
-  return response;
+  return await authEndpoint.login(req);
 });

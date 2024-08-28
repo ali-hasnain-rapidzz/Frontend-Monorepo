@@ -1,4 +1,3 @@
-@import "./styles/home.css"; 
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -12,12 +11,11 @@
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
-   
+
     #4a90e2 0deg,
     #9013fe 55deg,
     #50e3c2 120deg,
-    #b8e986 160deg
-    transparent 360deg
+    #b8e986 160deg transparent 360deg
   );
   --secondary-glow: radial-gradient(
     rgba(255, 255, 255, 1),

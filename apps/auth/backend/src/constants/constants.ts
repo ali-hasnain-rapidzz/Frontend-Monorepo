@@ -15,5 +15,3 @@ export const ERROR_MESSAGES = {
 export const REGEX_CONSTANTS = {
   EMAIL: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
 };
-
-export const DEFAULT_PAGINATION_LIMIT = 10;
