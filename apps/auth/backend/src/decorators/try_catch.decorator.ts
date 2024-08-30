@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { ApiError } from "@EPUtils/ApiError";
 import httpStatus from "http-status";
 
@@ -21,8 +22,7 @@ function TryCatch() {
 
     descriptor.value = async function (...args: any[]) {
       try {
-        const result = await originalMethod.apply(this, args);
-        return result;
+        return await originalMethod.apply(this, args);
       } catch (error) {
         if (error instanceof Error) {
           throw new ApiError(

@@ -1,5 +1,5 @@
 import { ERROR_MESSAGES } from "@Constants/constants";
-import TryCatch from "@Decorators/tryCatch.decorator";
+import TryCatch from "@Decorators/try_catch.decorator";
 import { IUser, UserType } from "@EPTypes/user.types";
 import { ApiError } from "@EPUtils/ApiError";
 import { EncryptLibrary } from "@Libraries/encrypt.lib";

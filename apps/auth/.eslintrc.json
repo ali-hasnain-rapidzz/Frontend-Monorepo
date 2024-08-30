@@ -104,7 +104,6 @@
         "**/middlewares/**/*.ts",
         "**/models/**/*.ts",
         "**/plugins/**/*.ts",
-        "**/services/**/*.ts",
         "**/validators/**/*.ts",
         "**/types/**/*.ts"
       ],
@@ -127,18 +126,31 @@
             "selector": "variable",
             "format": ["camelCase", "UPPER_CASE"]
           },
+
+          {
+            "selector": "method",
+            "format": ["camelCase"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["**/services/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/naming-convention": [
+          "error",
+          // {
+          //   "selector": "variable",
+          //   "format": ["camelCase", "UPPER_CASE"]
+          // },
+
           {
             "selector": "function",
             "format": ["camelCase"]
           },
           {
-            "selector": "parameter",
-            "format": ["camelCase"]
-          },
-
-          {
-            "selector": "method",
-            "format": ["camelCase"]
+            "selector": "class",
+            "format": ["PascalCase"]
           }
         ]
       }
